@@ -10,8 +10,10 @@ import javax.net.ssl.X509TrustManager;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.conn.scheme.Scheme;
@@ -67,6 +69,40 @@ public class HttpClientImpl {
 			addBasicHeaders(req, conf);
 			req.setEntity(new StringEntity(json));
 			req.setHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
+			HttpResponse response = client.execute(req);
+			return response;
+
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	public HttpResponse pustRequest(String url, Configuration conf, String json) {
+
+		// get https client
+		DefaultHttpClient client = getHttpClient();
+
+		try {
+			HttpPut req = new HttpPut(conf.getBaseURL() + url);
+			addBasicHeaders(req, conf);
+			req.setEntity(new StringEntity(json));
+			req.setHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
+			HttpResponse response = client.execute(req);
+			return response;
+
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	public HttpResponse deleteRequest(String url, Configuration conf) {
+
+		// get https client
+		DefaultHttpClient client = getHttpClient();
+
+		try {
+			HttpUriRequest req = new HttpDelete(conf.getBaseURL() + url);
+			addBasicHeaders(req, conf);
 			HttpResponse response = client.execute(req);
 			return response;
 

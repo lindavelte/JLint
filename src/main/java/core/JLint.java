@@ -1,5 +1,6 @@
 package core;
 
+import api.Profile;
 import api.Sanity;
 import api.User;
 
@@ -7,5 +8,5 @@ import api.User;
  * @author linda.velte
  * 
  */
-public interface JLint extends Sanity, User {
+public interface JLint extends Sanity, User, Profile {
 }

@@ -1,6 +1,9 @@
 package api;
 
 import java.io.IOException;
+import java.util.List;
+
+import model.Profile;
 
 import org.apache.http.ParseException;
 
@@ -19,4 +22,14 @@ public interface User {
 	public model.User login(String login, String password) throws JLintException, ParseException, IOException;
 
 	public boolean logout(Long id) throws JLintException, ParseException, IOException;
+
+	public boolean deleteUser(Long id) throws JLintException, ParseException, IOException;
+
+	public model.User updateUser(Long id, String name, String email, String login) throws JLintException, ParseException, IOException;
+
+	public model.User showUser(Long id) throws JLintException, ParseException, IOException;
+
+	public List<model.User> listUsers() throws JLintException, ParseException, IOException;
+
+	public List<Profile> listUserPermissions(Long id) throws JLintException, ParseException, IOException;
 }
