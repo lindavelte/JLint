@@ -49,5 +49,4 @@ public class Configuration {
 	public void setBaseURL(String baseURL) {
 		this.baseURL = baseURL;
 	}
-
 }
