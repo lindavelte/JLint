@@ -59,6 +59,12 @@ public class Main {
 			User user = jlint.createUser("linda", "linda", "linda.velte@xlm.pt");
 			System.out.println("Created user: " + user.getName());
 
+			System.out.println("\n\nList Users Profiles");
+			List<Profile> userProfileList = jlint.listUserProfiles(user.getId());
+			for (Profile p : userProfileList) {
+				System.out.println("Profile: " + p.getName());
+			}
+
 			System.out.println("\n*** Register Created User");
 			user = jlint.registerUser(user.getToken(), "linda");
 			System.out.println("User registered");

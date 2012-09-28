@@ -29,7 +29,15 @@ public interface User {
 
 	public model.User showUser(Long id) throws JLintException, ParseException, IOException;
 
+	public model.User activateUser(Long id) throws JLintException, ParseException, IOException;
+
+	public model.User deactivateUser(Long id) throws JLintException, ParseException, IOException;
+
+	public model.User reactivateUser(Long id) throws JLintException, ParseException, IOException;
+
 	public List<model.User> listUsers() throws JLintException, ParseException, IOException;
 
 	public List<Profile> listUserPermissions(Long id) throws JLintException, ParseException, IOException;
+
+	public List<Profile> listUserProfiles(Long id) throws JLintException, ParseException, IOException;
 }

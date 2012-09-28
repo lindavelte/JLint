@@ -300,4 +300,92 @@ public class JLintImpl implements JLint {
 			return null;
 		}
 	}
+
+	public List<Profile> listUserProfiles(Long id) throws JLintException, ParseException, IOException {
+		HttpResponse response = HttpClientImpl.getInstance().getRequest("/users/" + id + "/profiles", conf);
+		HttpEntity entity = response.getEntity();
+
+		int statusCode = response.getStatusLine().getStatusCode();
+
+		if (statusCode != 200) {
+			throw new JLintException(EntityUtils.toString(entity));
+		}
+
+		try {
+			ObjectMapper mapper = new ObjectMapper();
+			String sanityresponse = EntityUtils.toString(entity);
+
+			List<Profile> profiles = mapper.readValue(sanityresponse, new TypeReference<List<Profile>>() {
+			});
+			return profiles;
+
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	public User activateUser(Long id) throws JLintException, ParseException, IOException {
+		HttpResponse response = HttpClientImpl.getInstance().getRequest("/users/" + id + "/activate", conf);
+		HttpEntity entity = response.getEntity();
+
+		int statusCode = response.getStatusLine().getStatusCode();
+
+		if (statusCode != 200) {
+			throw new JLintException(EntityUtils.toString(entity));
+		}
+
+		try {
+			ObjectMapper mapper = new ObjectMapper();
+			String sanityresponse = EntityUtils.toString(entity);
+
+			User user = mapper.readValue(sanityresponse, User.class);
+			return user;
+
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	public User deactivateUser(Long id) throws JLintException, ParseException, IOException {
+		HttpResponse response = HttpClientImpl.getInstance().getRequest("/users/" + id + "/deactivate", conf);
+		HttpEntity entity = response.getEntity();
+
+		int statusCode = response.getStatusLine().getStatusCode();
+
+		if (statusCode != 200) {
+			throw new JLintException(EntityUtils.toString(entity));
+		}
+
+		try {
+			ObjectMapper mapper = new ObjectMapper();
+			String sanityresponse = EntityUtils.toString(entity);
+
+			User user = mapper.readValue(sanityresponse, User.class);
+			return user;
+
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	public User reactivateUser(Long id) throws JLintException, ParseException, IOException {
+		HttpResponse response = HttpClientImpl.getInstance().getRequest("/users/" + id + "/reactivate", conf);
+		HttpEntity entity = response.getEntity();
+
+		int statusCode = response.getStatusLine().getStatusCode();
+
+		if (statusCode != 200) {
+			throw new JLintException(EntityUtils.toString(entity));
+		}
+
+		try {
+			ObjectMapper mapper = new ObjectMapper();
+			String sanityresponse = EntityUtils.toString(entity);
+			User user = mapper.readValue(sanityresponse, User.class);
+			return user;
+
+		} catch (Exception e) {
+			return null;
+		}
+	}
 }
