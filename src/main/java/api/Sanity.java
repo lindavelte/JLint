@@ -9,6 +9,8 @@ import org.apache.http.ParseException;
 import exceptions.JLintException;
 
 /**
+ * Sanity Check
+ * 
  * @author linda.velte
  * 
  */
@@ -16,7 +18,7 @@ import exceptions.JLintException;
 public interface Sanity {
 
 	/**
-	 * Check sanity of your environment
+	 * Checks sanity of your environment
 	 * 
 	 * @return
 	 */
