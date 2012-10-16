@@ -3,7 +3,6 @@
   <groupId>pt.xlm</groupId>
   <artifactId>jlint</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  
   	<build>
 		<finalName>JLint</finalName>
 		<plugins>
@@ -14,20 +13,19 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
+		
 		</plugins>
 	</build>
   	<dependencies>
   		<dependency>
-	<groupId>org.apache.httpcomponents</groupId>
-	<artifactId>httpclient</artifactId>
-	<version>4.1-alpha1</version>
-</dependency>
-<dependency>
-		<groupId>org.codehaus.jackson</groupId>
-		<artifactId>jackson-mapper-asl</artifactId>
-		<version>1.8.5</version>
-	</dependency>
-            
-    </dependencies>    
-    
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.1-alpha1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.8.5</version>
+		</dependency>     
+    </dependencies>     
 </project>
